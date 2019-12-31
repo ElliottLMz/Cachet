@@ -253,4 +253,4 @@ so even if you don't use Cachet, issues are very helpful to improving it!
 
 # Credits
 Cachet was created by ElliottLMz.
-Thanks to BenSBk for help designing the typechecker.
+The method used for typechecking was developed by colbert2677.
