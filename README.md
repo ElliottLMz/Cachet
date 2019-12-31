@@ -191,6 +191,7 @@ cache:connect(function) -> RBXScriptConnection
 ```
 
 Connects a callback to the cache's event. This event is fired with the following parameters:
+* `key`: The key that was updated.
 * `oldValue`: This is the original value of the key. `oldValue == nil` identifies that the key was newly created.
 * `value`: This is the new value of the key. `value == nil` identifies that the key was invalidated.
 * `guid`: This is the new GUID for the cache entry. `guid == nil` identifies that the key was invalidated.
