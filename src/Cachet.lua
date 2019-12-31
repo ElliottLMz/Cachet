@@ -33,7 +33,7 @@ local BAD_TYPE = "bad argument #%i to '%s' (%s expected, got %s)"
 local BAD_ARGUMENT = "bad argument #%i to '%s' (%s)"
 
 --[[
-	Better assert function. Credit to BenSBk.
+	Better assert function.
 ]]
 local function assert(assertion, message, level)
   if assertion then
