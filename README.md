@@ -1,6 +1,8 @@
 # Cachet
 A powerful Lua module for caching
 
+[Cachet DevForum topic](https://devforum.roblox.com/t/cachet-an-open-source-module-for-robust-caching/421770)
+
 # Motivation
 I made Cachet as I was repeating a lot of code in systems that required caching. I built Cachet to be as robust and powerful
 as possible, with the intention to be a one-fits-all solution for anything related to caching.
