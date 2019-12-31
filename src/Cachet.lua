@@ -24,6 +24,7 @@
 	SOFTWARE.
 ]]
 local HttpService = game:GetService("HttpService")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
 local Cachet = {}
 Cachet.__index = Cachet
@@ -32,7 +33,7 @@ local BAD_TYPE = "bad argument #%i to '%s' (%s expected, got %s)"
 local BAD_ARGUMENT = "bad argument #%i to '%s' (%s)"
 
 --[[
-	Better assert function.
+	Better assert function. Credit to BenSBk.
 ]]
 local function assert(assertion, message, level)
   if assertion then
@@ -65,11 +66,15 @@ end
 ]]
 function Cachet:retrieve(key)
 	assert(typeof(key) == "string", BAD_TYPE:format(1, "cache.retrieve", "string", typeof(key)), 2)
-	return self.data[key].value, self.data[key]
+	if self.data[key] then
+		return self.data[key].value, self.data[key]
+	else
+		return nil, nil
+	end
 end
 
 -- Alias for retrieve
-Cachet.get = Cachet.retrieve()
+Cachet.get = Cachet.retrieve
 
 --[[
 	Updates the cache
@@ -96,7 +101,7 @@ function Cachet:store(key, value, invalidateAfter)
 		end)()
 	end
 	
-	self.event:Fire(oldValue and oldValue.value, value, guid)
+	self.event:Fire(key, oldValue and oldValue.value, value, guid)
 	
 	return guid
 end
@@ -125,7 +130,7 @@ function Cachet:invalidateKey(key)
 	local oldValue = self.data[key]
 	if oldValue then
 		self.data[key] = nil
-		self.event:Fire(oldValue.value, nil, nil)
+		self.event:Fire(key, oldValue.value, nil, nil)
 		return true
 	end
 	return false
