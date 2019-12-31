@@ -51,7 +51,7 @@ Creates, prepares, and returns a `cache` object.
 cache:retrieve(key) -> any(value), dictionary(raw)
 ```
 
-Returns `key from the cache, assuming it exists. The `raw` dictionary contains the following keys:
+Returns `key from the cache, assuming it exists. The `raw` dictionary contains the following keys (called 'meta properties'):
 
 * `guid`: the unique reference to the key
 * `value`: the current value stored in the cache
@@ -227,6 +227,7 @@ in error and unintended behaviour.
 None
 
 **Returns**: void
+
 
 -----------------------------------------------
 
