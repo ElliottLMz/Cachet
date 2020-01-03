@@ -54,8 +54,10 @@ function Cachet.new(defaultValues)
 		event = Instance.new("BindableEvent")
 	}, Cachet)
 	
-	for key, value in pairs(defaultValues) do
-		cache:store(key, value)
+	if defaultValues then
+		for key, value in pairs(defaultValues) do
+			cache:store(key, value)
+		end
 	end
 
 	return cache
