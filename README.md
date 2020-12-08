@@ -1,3 +1,5 @@
+> ⚠🚨 **Deprecated**: Don't use this. It's no-longer maintained.
+
 # Cachet
 A powerful Lua module for caching
 
